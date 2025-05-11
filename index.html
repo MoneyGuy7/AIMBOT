@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Main Site</title>
+</head>
+<body style="font-family: sans-serif; text-align: center; margin-top: 100px;">
+  <h1>Welcome to My GitHub Website</h1>
+  <button onclick="openFakeWindow()" style="padding: 10px 20px; font-size: 16px;">Open Fake About Window</button>
+
+  <script>
+    function openFakeWindow() {
+      const features = 'width=500,height=500,resizable=yes,scrollbars=yes';
+      const newWin = window.open('', 'FakeAboutWindow', features);
+
+      newWin.document.write(`
+        <html>
+          <head>
+            <title>Fake About Tools</title>
+            <style>
+              body {
+                font-family: sans-serif;
+                background-color: #111;
+                color: white;
+                text-align: center;
+                padding: 30px;
+              }
+              button.tool-btn {
+                margin: 15px;
+                padding: 12px 25px;
+                font-size: 16px;
+                background-color: #222;
+                color: white;
+                border: 2px solid #444;
+                border-radius: 8px;
+                cursor: pointer;
+              }
+              .status-light {
+                width: 20px;
+                height: 20px;
+                display: inline-block;
+                margin-left: 10px;
+                border-radius: 50%;
+                box-shadow: 0 0 10px #f00;
+                background-color: red;
+              }
+              .active {
+                background-color: limegreen !important;
+                box-shadow: 0 0 12px lime;
+              }
+            </style>
+          </head>
+          <body>
+            <h2>Fake Game Enhancer</h2>
+            <p>Totally not suspicious tools:</p>
+
+            <div>
+              <button class="tool-btn" onclick="toggleStatus('softAim')">Activate Soft Aim</button>
+              <span id="softAim" class="status-light"></span>
+            </div>
+
+            <div>
+              <button class="tool-btn" onclick="toggleStatus('autoAim')">Enable Auto Aim</button>
+              <span id="autoAim" class="status-light"></span>
+            </div>
+
+            <div>
+              <button class="tool-btn" onclick="toggleStatus('espWallhack')">Turn On ESP</button>
+              <span id="espWallhack" class="status-light"></span>
+            </div>
+
+            <script>
+              function toggleStatus(id) {
+                const light = document.getElementById(id);
+                light.classList.toggle('active');
+              }
+            </script>
+          </body>
+        </html>
+      `);
+    }
+  </script>
+</body>
+</html>
